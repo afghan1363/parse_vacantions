@@ -31,16 +31,4 @@ class SuperJob(GetVacancies):
         sj_json = json.loads(data)
         return sj_json
 
-    def format_vacancies(self):
-        vac_sj = []
-        data = self.get_vacancies()
-        for el in data['objects']:
-            vac_sj.append(Vacancy(
-                title=el['profession'],
-                desc=el['candidat'],
-                salary_from=el['salary_from'],
-                salary_to=el['salary_to'],
-                url=el['link'],
-                employer=el['client']['title']
-            ))
-            return vac_sj
+
