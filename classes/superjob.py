@@ -1,10 +1,11 @@
 import json
 import requests
 from classes.abstractclass import GetVacancies
-from classes.vacancies import Vacancy
 
 
 class SuperJob(GetVacancies):
+    """Получение вакансий в формате json
+     с сайта superjob.ru"""
 
     def __init__(self, search_query, salary=None, show_salary=0):
         self.search_query = search_query
@@ -12,6 +13,7 @@ class SuperJob(GetVacancies):
         self.show_salary = show_salary
 
     def get_vacancies(self):
+        """Метод для отправки запроса"""
         headers_sj = {
             "X-Api-App-Id": "v3.h.4525045.ed10e2c364a8b30ec575f46690c"
                             "d3eb9519ed323.3032a7eabfb8d5c94df31d600f62a208445dfd98"
@@ -30,5 +32,3 @@ class SuperJob(GetVacancies):
         req.close()
         sj_json = json.loads(data)
         return sj_json
-
-

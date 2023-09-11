@@ -1,6 +1,9 @@
 class Vacancy:
+    """
+    Класс для работы с вакансиями
+    """
     __slots__ = ("title", "desc", "salary_from", "salary_to", "url", "employer")
-    all_vacancies = []
+    all_vacancies = []  # список полученных и отформатированных вакансий
 
     def __init__(self, title, desc, salary_from, salary_to, url, employer):
         self.title = title
