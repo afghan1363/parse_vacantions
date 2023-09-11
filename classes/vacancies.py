@@ -1,5 +1,5 @@
 class Vacancy:
-    __slots__ = ("title", "url", "salary_from", "salary_to", "employer")
+    __slots__ = ("title", "desc", "salary_from", "salary_to", "url", "employer")
     all_vacancies = []
 
     def __init__(self, title, desc, salary_from, salary_to, url, employer):
@@ -9,7 +9,13 @@ class Vacancy:
         self.salary_to = salary_to
         self.url = url
         self.employer = employer
-        self.all_vacancies.append(self)
+        Vacancy.all_vacancies.append({'title': self.title,
+                                      'employer': self.employer,
+                                      'description': self.desc,
+                                      'salary_from': self.salary_from,
+                                      'salary_to': self.salary_to,
+                                      'url': self.url
+                                      })
 
     def __str__(self) -> str:
         return (f"Название: {self.title},\nСсылка: {self.url},\nЗарплата: от {self.salary_from} до {self.salary_to}, "
